@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">プロトタイプ</string>
+    <string name="item_entry">アイテム登録</string>
+    <string name="item_check">アイテム確認</string>
+    <string name="item_entry_camera">撮影</string>
+    <string name="item_entry_gallery">画像選択</string>
+    <string name="property_input">詳細入力</string>
+    <string name="parts">パーツ</string>
+    <string-array name="parts_list">
+        <item>トップス</item>
+        <item>アウター</item>
+        <item>パンツ</item>
+        <item>スカート</item>
+        <item>ワンピース</item>
+        <item>ソックス</item>
+        <item>シューズ</item>
+        <item>バッグ</item>
+        <item>小物</item>
+        <item>アクセサリー</item>
+        <item>帽子</item>
+        <item>その他</item>
+    </string-array>
+    <string name="buy_day">購入日</string>
+    <string name="entry">登録</string>
+
+</resources>
