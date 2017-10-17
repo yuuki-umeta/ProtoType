@@ -1,11 +1,9 @@
-package com.example.umeta.prototype;
+package com.example.umeta.prototype.Database;
 
-import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 
 import java.util.ArrayList;
 import java.util.List;

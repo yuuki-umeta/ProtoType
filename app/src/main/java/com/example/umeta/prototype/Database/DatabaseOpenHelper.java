@@ -1,4 +1,4 @@
-package com.example.umeta.prototype;
+package com.example.umeta.prototype.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

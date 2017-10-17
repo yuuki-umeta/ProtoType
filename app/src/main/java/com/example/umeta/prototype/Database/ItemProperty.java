@@ -1,4 +1,4 @@
-package com.example.umeta.prototype;
+package com.example.umeta.prototype.Database;
 
 import android.net.Uri;
 
@@ -17,7 +17,6 @@ public class ItemProperty implements Serializable {
 
     private Long rowId = null;
     private String partsName = null;
-//    private String itemNumber = null;
 
     public Long getRowId(){
         return rowId;
@@ -35,13 +34,12 @@ public class ItemProperty implements Serializable {
         this.partsName = partsName;
     }
 
-/*
-    public String getItemNumber(){
-        return itemNumber;
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(getRowId());
+        builder.append(",");
+        builder.append(getPartsName());
+        return builder.toString();
     }
-
-    public void setItemNumber(String itemNumber){
-        this.itemNumber = itemNumber;
-    }
-*/
 }
