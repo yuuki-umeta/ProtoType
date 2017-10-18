@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.widget.Gallery;
 import android.widget.ImageView;
 
 import java.io.FileOutputStream;
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class GalleryActivity extends AppCompatActivity {
 
-    private Uri uri;
+    private Uri _imageUri;
     private Bitmap bitmap;
 
     @Override
@@ -40,9 +41,9 @@ public class GalleryActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1001 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                uri = data.getData();
+                _imageUri = data.getData();
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -59,17 +60,11 @@ public class GalleryActivity extends AppCompatActivity {
         alertDlg.setMessage("このアイテムを登録しますか？");
         alertDlg.setPositiveButton(
                 "OK",
-                new DialogInterface.OnClickListener() {
+                new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            final FileOutputStream out = openFileOutput("first", Context.MODE_PRIVATE);
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-                            out.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Intent intent = new Intent(GalleryActivity.this, PropertyInputActivity.class);
-                        startActivity(intent);
+                        Intent intentPropertyInput = new Intent(GalleryActivity.this, PropertyInputActivity.class);
+                        intentPropertyInput.putExtra("Uri", _imageUri);
+                        startActivity(intentPropertyInput);
                         finish();
                     }
                 }

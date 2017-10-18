@@ -91,13 +91,6 @@ public class CameraActivity extends AppCompatActivity {
                 "OK",
                 new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
-/*                        try{
-                            final FileOutputStream out = openFileOutput("first", Context.MODE_PRIVATE);
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-                            out.close();
-                        }catch(IOException e){
-                            e.printStackTrace();
-                        }*/
                         Intent intentPropertyInput = new Intent(CameraActivity.this, PropertyInputActivity.class);
                         intentPropertyInput.putExtra("Uri", _imageUri);
                         startActivity(intentPropertyInput);
