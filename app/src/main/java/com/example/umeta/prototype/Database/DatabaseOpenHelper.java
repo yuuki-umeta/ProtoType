@@ -15,6 +15,13 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "item_property";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_PARTS_NAME = "parts_name";
+    public static final String COLUMN_PARTS_COLOR = "parts_color";
+    public static final String COLUMN_PARTS_SIZE = "parts_size";
+    public static final String COLUMN_PARTS_BRAND = "parts_brand";
+    public static final String COLUMN_PARTS_PURCHASE_DATA = "parts_purchase_data";
+    public static final String COLUMN_PARTS_PRICE = "parts_price";
+    public static final String COLUMN_PARTS_LAST_TIME = "parts_last_time";
+    public static final String COLUMN_PARTS_FREQUENCY = "parts_frequency";
 
     public DatabaseOpenHelper(Context context){
         super(context, DB_NAME, null, 1);
