@@ -8,7 +8,7 @@
     <string name="property_input">詳細入力</string>
 
     <string name="item">アイテム</string>
-    <string-array name="parts_list">
+    <string-array name="item_list">
         <item>トップス</item>
         <item>アウター</item>
         <item>パンツ</item>
@@ -24,7 +24,7 @@
     </string-array>
 
     <string name="color">色</string>
-    <string-array name="colors_list">
+    <string-array name="color_list">
         <item>白</item>
         <item>黒</item>
         <item>赤</item>
@@ -37,7 +37,7 @@
     </string-array>
 
     <string name="size">サイズ</string>
-    <string-array name="sizes_list">
+    <string-array name="size_list">
         <item>SS</item>
         <item>S</item>
         <item>M</item>

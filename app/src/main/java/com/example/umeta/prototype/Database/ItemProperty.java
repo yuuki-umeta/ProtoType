@@ -11,105 +11,112 @@ import java.io.Serializable;
 public class ItemProperty implements Serializable {
     public static final String TABLE_NAME = "item_property";
 
-    public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_PARTS_NAME = "parts_name";
-    public static final String COLUMN_PARTS_COLOR = "parts_color";
-    public static final String COLUMN_PARTS_SIZE = "parts_size";
-    public static final String COLUMN_PARTS_BRAND = "parts_brand";
-    public static final String COLUMN_PARTS_PURCHASE_DATA = "parts_purchase_date";
-    public static final String COLUMN_PARTS_PRICE = "parts_price";
-    public static final String COLUMN_PARTS_LAST_USE_DATE = "parts_last_use_date";
-    public static final String COLUMN_PARTS_FREQUENCY = "parts_frequency";
+    public static final String COLUMN_ITEM_ID = "item_id";
+    public static final String COLUMN_ITEM_NAME = "item_name";
+    public static final String COLUMN_ITEM_COLOR = "item_color";
+    public static final String COLUMN_ITEM_SIZE = "item_size";
+    public static final String COLUMN_ITEM_BRAND = "item_brand";
+    public static final String COLUMN_ITEM_PURCHASE_DATE = "item_purchase_date";
+    public static final String COLUMN_ITEM_PRICE = "item_price";
+    public static final String COLUMN_ITEM_LAST_USE_DATE = "item_last_use_date";
+    public static final String COLUMN_ITEM_FREQUENCY = "item_frequency";
 
 
-    private Long rowId = null;
-    private String partsName = null;
-    private String partsColor = null;
-    private String partsSize = null;
-    private String partsBrand = null;
-    private String partsPurchaseDate = null;
-    private String partsPrice = null;
-    private String partsLastUseDate = null;
-    private String partsFrequency = null;
+    private Long itemId = null;
+    private String itemName = null;
+    private String itemColor = null;
+    private String itemSize = null;
+    private String itemBrand = null;
+    private String itemPurchaseDate = null;
+    private String itemPrice = null;
+    private String itemLastUseDate = null;
+    private String itemFrequency = null;
 
-    public Long getRowId(){
-        return rowId;
+    public Long getItemId(){
+        return itemId;
     }
 
-    public void setRowId(Long rowId){
-        this.rowId = rowId;
+    public void setItemId(Long itemId){
+        this.itemId = itemId;
     }
 
-    public String getPartsName(){
-        return partsName;
+    public String getItemName(){
+        return itemName;
     }
 
-    public void setPartsName(String partsName){
-        this.partsName = partsName;
+    public void setItemName(String itemName){
+        this.itemName = itemName;
     }
 
-    public String getPartsColor() {
-        return partsColor;
+    public String getItemColor() {
+        return itemColor;
     }
 
-    public void setPartsColor(String partsColor){
-        this.partsColor = partsColor;
+    public void setItemColor(String itemColor){
+        this.itemColor = itemColor;
     }
 
-    public String getPartsSize() {
-        return partsSize;
+    public String getItemSize() {
+        return itemSize;
     }
 
-    public void setPartsSize(String partsSize) {
-        this.partsSize = partsSize;
+    public void setItemSize(String itemSize) {
+        this.itemSize = itemSize;
     }
 
-    public String getPartsBrand() {
-        return partsBrand;
+    public String getItemBrand() {
+        return itemBrand;
     }
 
-    public void setPartsBrand(String partsBrand) {
-        this.partsBrand = partsBrand;
+    public void setItemBrand(String itemBrand) {
+        this.itemBrand = itemBrand;
     }
 
-    public String getPartsPurchaseDate() {
-        return partsPurchaseDate;
+    public String getItemPurchaseDate() {
+        return itemPurchaseDate;
     }
 
-    public void setPartsPurchaseDate(String partsPurchaseDate) {
-        this.partsPurchaseDate = partsPurchaseDate;
+    public void setItemPurchaseDate(String itemPurchaseDate) {
+        this.itemPurchaseDate = itemPurchaseDate;
     }
 
-    public String getPartsPrice() {
-        return partsPrice;
+    public String getItemPrice() {
+        return itemPrice;
     }
 
-    public void setPartsPrice(String partsPrice) {
-        this.partsPrice = partsPrice;
+    public void setItemPrice(String itemsPrice) {
+        this.itemPrice = itemsPrice;
     }
 
-    public String getPartsLastUseDate() {
-        return partsLastUseDate;
+    public String getItemLastUseDate() {
+        return itemLastUseDate;
     }
 
-    public void setPartsLastUseDate(String partsLastTime) {
-        this.partsLastUseDate = partsLastTime;
+    public void setItemLastUseDate(String itemsLastTime) {
+        this.itemLastUseDate = itemsLastTime;
     }
 
-    public String getPartsFrequency() {
-        return partsFrequency;
+    public String getItemFrequency() {
+        return itemFrequency;
     }
 
-    public void setPartsFrequency(String partsFrequency) {
-        this.partsFrequency = partsFrequency;
+    public void setItemFrequency(String itemFrequency) {
+        this.itemFrequency = itemFrequency;
     }
 
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append(getRowId());
+        builder.append(getItemId());
         builder.append(",");
-        builder.append(getPartsName());
+        builder.append(getItemName());
+        builder.append(",");
+        builder.append(getItemColor());
+        builder.append(",");
+        builder.append(getItemSize());
+        builder.append(",");
+        builder.append(getItemBrand());
+        builder.append(",");
         return builder.toString();
     }
 }

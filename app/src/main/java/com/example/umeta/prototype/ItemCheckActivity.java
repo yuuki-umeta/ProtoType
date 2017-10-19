@@ -29,7 +29,6 @@ public class ItemCheckActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_check);
 
-        System.out.println("print");
         Button btCheck = (Button) findViewById(R.id.check);
         Button btBack = (Button) findViewById(R.id.back);
         btCheck.setOnClickListener(this);
@@ -49,7 +48,7 @@ public class ItemCheckActivity extends AppCompatActivity implements View.OnClick
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             ItemProperty item = itemList.get(i);
-            rowId = item.getRowId();
+            rowId = item.getItemId();
         }
     }
 

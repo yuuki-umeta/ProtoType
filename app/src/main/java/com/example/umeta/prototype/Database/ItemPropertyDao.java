@@ -24,24 +24,24 @@ public class ItemPropertyDao {
         SQLiteDatabase db = helper.getWritableDatabase();
         ItemProperty result = null;
         try{
-            ContentValues values = new ContentValues();
-            values.put(ItemProperty.COLUMN_PARTS_NAME, itemProperty.getPartsName());
-            values.put(ItemProperty.COLUMN_PARTS_COLOR, itemProperty.getPartsColor());
-            values.put(ItemProperty.COLUMN_PARTS_SIZE, itemProperty.getPartsSize());
-            values.put(ItemProperty.COLUMN_PARTS_BRAND, itemProperty.getPartsBrand());
-            values.put(ItemProperty.COLUMN_PARTS_PURCHASE_DATA, itemProperty.getPartsPurchaseDate());
-            values.put(ItemProperty.COLUMN_PARTS_PRICE, itemProperty.getPartsPrice());
-            values.put(ItemProperty.COLUMN_PARTS_LAST_USE_DATE, itemProperty.getPartsLastUseDate());
-            values.put(ItemProperty.COLUMN_PARTS_FREQUENCY, itemProperty.getPartsFrequency());
+            ContentValues values = new ContentValues(9);
+            values.put(ItemProperty.COLUMN_ITEM_NAME, itemProperty.getItemName());
+            values.put(ItemProperty.COLUMN_ITEM_COLOR, itemProperty.getItemColor());
+            values.put(ItemProperty.COLUMN_ITEM_SIZE, itemProperty.getItemSize());
+            values.put(ItemProperty.COLUMN_ITEM_BRAND, itemProperty.getItemBrand());
+            values.put(ItemProperty.COLUMN_ITEM_PURCHASE_DATE, itemProperty.getItemPurchaseDate());
+            values.put(ItemProperty.COLUMN_ITEM_PRICE, itemProperty.getItemPrice());
+            values.put(ItemProperty.COLUMN_ITEM_LAST_USE_DATE, itemProperty.getItemLastUseDate());
+            values.put(ItemProperty.COLUMN_ITEM_FREQUENCY, itemProperty.getItemFrequency());
 
-            Long rowId = itemProperty.getRowId();
-            if(rowId == null) {
-                rowId = db.insert(ItemProperty.TABLE_NAME, null, values);
+            Long itemId = itemProperty.getItemId();
+            if(itemId == null) {
+                itemId = db.insert(ItemProperty.TABLE_NAME, null, values);
             }
             else{
-                db.update(ItemProperty.TABLE_NAME, values, ItemProperty.COLUMN_ID + "=?", new String[]{String.valueOf(rowId)});
+                db.update(ItemProperty.TABLE_NAME, values, ItemProperty.COLUMN_ITEM_ID + "=?", new String[]{String.valueOf(itemId)});
             }
-            result = load(rowId);
+            result = load(itemId);
         }finally {
             db.close();
         }
@@ -51,18 +51,18 @@ public class ItemPropertyDao {
     public void delete(ItemProperty itemProperty){
         SQLiteDatabase db = helper.getWritableDatabase();
         try{
-            db.delete(ItemProperty.TABLE_NAME, ItemProperty.COLUMN_ID + "=?", new String[]{String.valueOf(itemProperty.getRowId())});
+            db.delete(ItemProperty.TABLE_NAME, ItemProperty.COLUMN_ITEM_ID + "=?", new String[]{String.valueOf(itemProperty.getItemId())});
         }finally {
             db.close();
         }
     }
 
-    public ItemProperty load(Long rowId){
+    public ItemProperty load(Long itemId){
         SQLiteDatabase db = helper.getReadableDatabase();
 
         ItemProperty itemProperty = null;
         try{
-            Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, ItemProperty.COLUMN_ID + "=?", new String[]{String.valueOf(rowId)}, null, null, null);
+            Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, ItemProperty.COLUMN_ITEM_ID + "=?", new String[]{String.valueOf(itemId)}, null, null, null);
             cursor.moveToFirst();
             itemProperty = getItemProperty(cursor);
         }finally {
@@ -77,7 +77,7 @@ public class ItemPropertyDao {
 
         List<ItemProperty> itemPropertyList;
         try{
-            Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, null, null, null, null, ItemProperty.COLUMN_ID);
+            Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, null, null, null, null, ItemProperty.COLUMN_ITEM_ID);
             itemPropertyList = new ArrayList<ItemProperty>();
             cursor.moveToFirst();
             while(!cursor.isAfterLast()){
@@ -93,15 +93,15 @@ public class ItemPropertyDao {
     private ItemProperty getItemProperty(Cursor cursor){
         ItemProperty itemProperty = new ItemProperty();
 
-        itemProperty.setRowId(cursor.getLong(0));
-        itemProperty.setPartsName(cursor.getString(1));
-        itemProperty.setPartsColor(cursor.getString(2));
-        itemProperty.setPartsSize(cursor.getString(3));
-        itemProperty.setPartsBrand(cursor.getString(4));
-        itemProperty.setPartsPurchaseDate(cursor.getString(5));
-        itemProperty.setPartsPrice(cursor.getString(6));
-        itemProperty.setPartsLastUseDate(cursor.getString(7));
-        itemProperty.setPartsFrequency(cursor.getString(8));
+        itemProperty.setItemId(cursor.getLong(0));
+        itemProperty.setItemName(cursor.getString(1));
+        itemProperty.setItemColor(cursor.getString(2));
+        itemProperty.setItemSize(cursor.getString(3));
+        itemProperty.setItemBrand(cursor.getString(4));
+        itemProperty.setItemPurchaseDate(cursor.getString(5));
+        itemProperty.setItemPrice(cursor.getString(6));
+        itemProperty.setItemLastUseDate(cursor.getString(7));
+        itemProperty.setItemFrequency(cursor.getString(8));
 
         return itemProperty;
     }

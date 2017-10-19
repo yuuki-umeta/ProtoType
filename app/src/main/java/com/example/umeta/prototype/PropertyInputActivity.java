@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,12 +27,12 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
 
     private ItemProperty itemProperty = new ItemProperty();
 
-    private String partsName = null;
-    private String partsColor = null;
-    private String partsSize = null;
-    private String partsBrand = null;
-    private String partsPurchaseDate = null;
-    private String partsPrice = null;
+    private String itemName = null;
+    private String itemColor = null;
+    private String itemSize = null;
+    private String itemBrand = null;
+    private String itemPurchaseDate = null;
+    private String itemPrice = null;
 
     private Bitmap bitmap = null;
 
@@ -43,31 +44,37 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
         Button bt = (Button) findViewById(R.id.entry);
         bt.setOnClickListener(this);
 
-        Intent intent = this.getIntent();
-        Uri _imageUri = intent.getParcelableExtra("Uri");
-        try {
-            ImageView photo = (ImageView) findViewById(R.id.Photo);
-            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imageUri);
-            photo.setImageBitmap(bitmap);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
 
     public void onClick(View v) {
         Toast.makeText(this, "登録しました。", Toast.LENGTH_LONG).show();
 
-        Spinner spinner = (Spinner)findViewById(R.id.parts);
-        partsName = (String) spinner.getSelectedItem();
+        Spinner spinnerItem = (Spinner)findViewById(R.id.item_list);
+        Spinner spinnerColor = (Spinner)findViewById(R.id.color_list);
+        Spinner spinnerSize = (Spinner) findViewById(R.id.size_list);
+        EditText editTextBrand = (EditText) findViewById(R.id.brand);
 
-        Intent intent = this.getIntent();
+        itemName = (String) spinnerItem.getSelectedItem();
+        itemColor = (String) spinnerColor.getSelectedItem();
+        itemSize = (String) spinnerSize.getSelectedItem();
+        itemBrand = editTextBrand.getText().toString();
+
+
         itemPropertyInput();
 
+        Intent intent = this.getIntent();
+        Uri _imageUri = intent.getParcelableExtra("Uri");
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imageUri);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
-        Long rowId = itemProperty.getRowId();
+        Long itemId = itemProperty.getItemId();
 
         try {
-            final FileOutputStream out = openFileOutput(rowId.toString(), Context.MODE_PRIVATE);
+            final FileOutputStream out = openFileOutput(itemId.toString(), Context.MODE_PRIVATE);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.close();
         } catch (IOException e) {
@@ -77,12 +84,12 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
     }
 
     public void itemPropertyInput(){
-        itemProperty.setPartsName(partsName);
-        itemProperty.setPartsColor(partsColor);
-        itemProperty.setPartsSize(partsSize);
-        itemProperty.setPartsBrand(partsBrand);
-        itemProperty.setPartsPurchaseDate(partsPurchaseDate);
-        itemProperty.setPartsPrice(partsPrice);
+        itemProperty.setItemName(itemName);
+        itemProperty.setItemColor(itemColor);
+        itemProperty.setItemSize(itemSize);
+        itemProperty.setItemBrand(itemBrand);
+        itemProperty.setItemPurchaseDate(itemPurchaseDate);
+        itemProperty.setItemPrice(itemPrice);
 
         ItemPropertyDao dao = new ItemPropertyDao(this);
         itemProperty = dao.save(itemProperty);
