@@ -20,7 +20,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PARTS_BRAND = "parts_brand";
     public static final String COLUMN_PARTS_PURCHASE_DATA = "parts_purchase_data";
     public static final String COLUMN_PARTS_PRICE = "parts_price";
-    public static final String COLUMN_PARTS_LAST_TIME = "parts_last_time";
+    public static final String COLUMN_PARTS_LAST_USE_DATE = "parts_last_use_date";
     public static final String COLUMN_PARTS_FREQUENCY = "parts_frequency";
 
     public DatabaseOpenHelper(Context context){
@@ -36,7 +36,13 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             createSql.append("create table " + TABLE_NAME + "(");
             createSql.append(COLUMN_ID + " integer primary key autoincrement,");
             createSql.append(COLUMN_PARTS_NAME + " text");
-            //createSql.append(ItemProperty.COLUMN_ITEM_NUMBER + "text");
+            createSql.append(COLUMN_PARTS_COLOR + "text");
+            createSql.append(COLUMN_PARTS_SIZE + "text");
+            createSql.append(COLUMN_PARTS_BRAND + "text");
+            createSql.append(COLUMN_PARTS_PURCHASE_DATA + "text");
+            createSql.append(COLUMN_PARTS_PRICE + "text");
+            createSql.append(COLUMN_PARTS_LAST_USE_DATE + "text");
+            createSql.append(COLUMN_PARTS_FREQUENCY + "text");
             createSql.append(")");
 
             db.execSQL(createSql.toString());

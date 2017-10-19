@@ -15,12 +15,7 @@ import java.util.List;
 public class ItemPropertyDao {
 
     private DatabaseOpenHelper helper = null;
-/*
-    private static final String TABLE_NAME = "ItemProperty";
-    private static final String COLUMN_ID = "rowid";
-    private static final String COLUMN_DATA = "data";
-    private static final String[] COLUMNS = {COLUMN_ID, COLUMN_DATA};
-*/
+
     public ItemPropertyDao(Context context){
         helper = new DatabaseOpenHelper(context);
     }
@@ -31,7 +26,13 @@ public class ItemPropertyDao {
         try{
             ContentValues values = new ContentValues();
             values.put(ItemProperty.COLUMN_PARTS_NAME, itemProperty.getPartsName());
-//            values.put(ItemProperty.COLUMN_ITEM_NUMBER, itemProperty.getItemNumber());
+            values.put(ItemProperty.COLUMN_PARTS_COLOR, itemProperty.getPartsColor());
+            values.put(ItemProperty.COLUMN_PARTS_SIZE, itemProperty.getPartsSize());
+            values.put(ItemProperty.COLUMN_PARTS_BRAND, itemProperty.getPartsBrand());
+            values.put(ItemProperty.COLUMN_PARTS_PURCHASE_DATA, itemProperty.getPartsPurchaseDate());
+            values.put(ItemProperty.COLUMN_PARTS_PRICE, itemProperty.getPartsPrice());
+            values.put(ItemProperty.COLUMN_PARTS_LAST_USE_DATE, itemProperty.getPartsLastUseDate());
+            values.put(ItemProperty.COLUMN_PARTS_FREQUENCY, itemProperty.getPartsFrequency());
 
             Long rowId = itemProperty.getRowId();
             if(rowId == null) {
@@ -94,6 +95,14 @@ public class ItemPropertyDao {
 
         itemProperty.setRowId(cursor.getLong(0));
         itemProperty.setPartsName(cursor.getString(1));
+        itemProperty.setPartsColor(cursor.getString(2));
+        itemProperty.setPartsSize(cursor.getString(3));
+        itemProperty.setPartsBrand(cursor.getString(4));
+        itemProperty.setPartsPurchaseDate(cursor.getString(5));
+        itemProperty.setPartsPrice(cursor.getString(6));
+        itemProperty.setPartsLastUseDate(cursor.getString(7));
+        itemProperty.setPartsFrequency(cursor.getString(8));
+
         return itemProperty;
     }
 }

@@ -6,7 +6,8 @@
     <string name="item_entry_camera">撮影</string>
     <string name="item_entry_gallery">画像選択</string>
     <string name="property_input">詳細入力</string>
-    <string name="parts">パーツ</string>
+
+    <string name="item">アイテム</string>
     <string-array name="parts_list">
         <item>トップス</item>
         <item>アウター</item>
@@ -21,6 +22,46 @@
         <item>帽子</item>
         <item>その他</item>
     </string-array>
+
+    <string name="color">色</string>
+    <string-array name="colors_list">
+        <item>白</item>
+        <item>黒</item>
+        <item>赤</item>
+        <item>黄</item>
+        <item>オレンジ</item>
+        <item>緑</item>
+        <item>青</item>
+        <item>紺</item>
+        <item>その他</item>
+    </string-array>
+
+    <string name="size">サイズ</string>
+    <string-array name="sizes_list">
+        <item>SS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>LL</item>
+        <item>22</item>
+        <item>22.5</item>
+        <item>23</item>
+        <item>23.5</item>
+        <item>24</item>
+        <item>24.5</item>
+        <item>25</item>
+        <item>25.5</item>
+        <item>26</item>
+        <item>26.5</item>
+        <item>27</item>
+        <item>27.5</item>
+        <item>28</item>
+        <item>28.5</item>
+        <item>29</item>
+        <item>その他</item>
+    </string-array>
+
+    <string name="brand">ブランド</string>
     <string name="buy_day">購入日</string>
     <string name="entry">登録</string>
 

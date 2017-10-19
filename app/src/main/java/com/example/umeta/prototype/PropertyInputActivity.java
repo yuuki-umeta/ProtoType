@@ -27,6 +27,11 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
     private ItemProperty itemProperty = new ItemProperty();
 
     private String partsName = null;
+    private String partsColor = null;
+    private String partsSize = null;
+    private String partsBrand = null;
+    private String partsPurchaseDate = null;
+    private String partsPrice = null;
 
     private Bitmap bitmap = null;
 
@@ -73,6 +78,11 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
 
     public void itemPropertyInput(){
         itemProperty.setPartsName(partsName);
+        itemProperty.setPartsColor(partsColor);
+        itemProperty.setPartsSize(partsSize);
+        itemProperty.setPartsBrand(partsBrand);
+        itemProperty.setPartsPurchaseDate(partsPurchaseDate);
+        itemProperty.setPartsPrice(partsPrice);
 
         ItemPropertyDao dao = new ItemPropertyDao(this);
         itemProperty = dao.save(itemProperty);
