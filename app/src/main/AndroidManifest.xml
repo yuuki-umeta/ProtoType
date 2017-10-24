@@ -22,7 +22,7 @@
         <activity android:name=".CameraActivity" />
         <activity android:name=".PropertyInputActivity" />
         <activity android:name=".ItemCheckActivity" />
-        <activity android:name=".GalleryActivity"></activity>
+        <activity android:name=".GalleryActivity" />
     </application>
 
 </manifest>

@@ -62,7 +62,10 @@
     </string-array>
 
     <string name="brand">ブランド</string>
-    <string name="buy_day">購入日</string>
+
+    <string name="purchase_date">購入日</string>
+    <string name="calender">カレンダー表示</string>
+
     <string name="entry">登録</string>
 
 </resources>
