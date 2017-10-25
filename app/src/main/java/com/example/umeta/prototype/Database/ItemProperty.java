@@ -117,6 +117,7 @@ public class ItemProperty implements Serializable {
         builder.append(",");
         builder.append(getItemBrand());
         builder.append(",");
+        builder.append(getItemPurchaseDate());
         return builder.toString();
     }
 }
