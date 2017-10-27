@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.umeta.prototype.PropertyInputActivity">
+    tools:context="com.example.umeta.prototype.Search.ItemSearchActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -128,13 +128,12 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/entry"
+            android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="@string/entry" />
+            android:text="@string/search"/>
 
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

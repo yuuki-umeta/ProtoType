@@ -12,7 +12,7 @@ public class ItemProperty implements Serializable {
     public static final String TABLE_NAME = "item_property";
 
     public static final String COLUMN_ITEM_ID = "item_id";
-    public static final String COLUMN_ITEM_NAME = "item_name";
+    public static final String COLUMN_ITEM_CATEGORY = "item_category";
     public static final String COLUMN_ITEM_COLOR = "item_color";
     public static final String COLUMN_ITEM_SIZE = "item_size";
     public static final String COLUMN_ITEM_BRAND = "item_brand";
@@ -23,7 +23,7 @@ public class ItemProperty implements Serializable {
 
 
     private Long itemId = null;
-    private String itemName = null;
+    private String itemCategory = null;
     private String itemColor = null;
     private String itemSize = null;
     private String itemBrand = null;
@@ -40,12 +40,12 @@ public class ItemProperty implements Serializable {
         this.itemId = itemId;
     }
 
-    public String getItemName(){
-        return itemName;
+    public String getItemCategory(){
+        return itemCategory;
     }
 
-    public void setItemName(String itemName){
-        this.itemName = itemName;
+    public void setItemCategory(String itemCategory){
+        this.itemCategory = itemCategory;
     }
 
     public String getItemColor() {
@@ -109,7 +109,7 @@ public class ItemProperty implements Serializable {
         StringBuilder builder = new StringBuilder();
         builder.append(getItemId());
         builder.append(",");
-        builder.append(getItemName());
+        builder.append(getItemCategory());
         builder.append(",");
         builder.append(getItemColor());
         builder.append(",");
@@ -118,6 +118,8 @@ public class ItemProperty implements Serializable {
         builder.append(getItemBrand());
         builder.append(",");
         builder.append(getItemPurchaseDate());
+        builder.append(", ");
+        builder.append(getItemPrice());
         return builder.toString();
     }
 }

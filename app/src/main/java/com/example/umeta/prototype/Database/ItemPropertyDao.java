@@ -25,7 +25,7 @@ public class ItemPropertyDao {
         ItemProperty result = null;
         try{
             ContentValues values = new ContentValues(9);
-            values.put(ItemProperty.COLUMN_ITEM_NAME, itemProperty.getItemName());
+            values.put(ItemProperty.COLUMN_ITEM_CATEGORY, itemProperty.getItemCategory());
             values.put(ItemProperty.COLUMN_ITEM_COLOR, itemProperty.getItemColor());
             values.put(ItemProperty.COLUMN_ITEM_SIZE, itemProperty.getItemSize());
             values.put(ItemProperty.COLUMN_ITEM_BRAND, itemProperty.getItemBrand());
@@ -94,7 +94,7 @@ public class ItemPropertyDao {
         ItemProperty itemProperty = new ItemProperty();
 
         itemProperty.setItemId(cursor.getLong(0));
-        itemProperty.setItemName(cursor.getString(1));
+        itemProperty.setItemCategory(cursor.getString(1));
         itemProperty.setItemColor(cursor.getString(2));
         itemProperty.setItemSize(cursor.getString(3));
         itemProperty.setItemBrand(cursor.getString(4));

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.umeta.prototype.Database.ItemProperty;
 import com.example.umeta.prototype.Database.ItemPropertyDao;
-import com.example.umeta.prototype.Extras.DatePickerDialogFragment;
+import com.example.umeta.prototype.Extras.PropertyDatePickerDialogFragment;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
 
     private ItemProperty itemProperty = new ItemProperty();
 
-    private String itemName = null;
+    private String itemCategory = null;
     private String itemColor = null;
     private String itemSize = null;
     private String itemBrand = null;
@@ -60,10 +60,8 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.calender:
-                DatePickerDialogFragment datePicker = new DatePickerDialogFragment();
+                PropertyDatePickerDialogFragment datePicker = new PropertyDatePickerDialogFragment();
                 datePicker.show(getSupportFragmentManager(), "datePicker");
-
-
                 break;
 
             case R.id.entry:
@@ -73,12 +71,14 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
                 Spinner spinnerColor = (Spinner) findViewById(R.id.color_list);
                 Spinner spinnerSize = (Spinner) findViewById(R.id.size_list);
                 EditText editTextBrand = (EditText) findViewById(R.id.brand);
+                EditText editTextPrice = (EditText) findViewById(R.id.price);
 
-                itemName = (String) spinnerItem.getSelectedItem();
+                itemCategory = (String) spinnerItem.getSelectedItem();
                 itemColor = (String) spinnerColor.getSelectedItem();
                 itemSize = (String) spinnerSize.getSelectedItem();
                 itemBrand = editTextBrand.getText().toString();
                 itemPurchaseDate = textDate.getText().toString();
+                itemPrice = editTextPrice.getText().toString();
 
                 itemPropertyInput();
 
@@ -106,7 +106,7 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
 
 
     public void itemPropertyInput() {
-        itemProperty.setItemName(itemName);
+        itemProperty.setItemCategory(itemCategory);
         itemProperty.setItemColor(itemColor);
         itemProperty.setItemSize(itemSize);
         itemProperty.setItemBrand(itemBrand);

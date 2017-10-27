@@ -14,7 +14,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "item_property";
     public static final String COLUMN_ITEM_ID = "item_id";
-    public static final String COLUMN_ITEM_NAME = "item_name";
+    public static final String COLUMN_ITEM_CATEGORY = "item_category";
     public static final String COLUMN_ITEM_COLOR = "item_color";
     public static final String COLUMN_ITEM_SIZE = "item_size";
     public static final String COLUMN_ITEM_BRAND = "item_brand";
@@ -35,7 +35,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             StringBuilder createSql = new StringBuilder();
             createSql.append("create table " + TABLE_NAME + "(");
             createSql.append(COLUMN_ITEM_ID + " integer primary key autoincrement,");
-            createSql.append(COLUMN_ITEM_NAME + " text,");
+            createSql.append(COLUMN_ITEM_CATEGORY + " text,");
             createSql.append(COLUMN_ITEM_COLOR + " text,");
             createSql.append(COLUMN_ITEM_SIZE + " text,");
             createSql.append(COLUMN_ITEM_BRAND + " text,");

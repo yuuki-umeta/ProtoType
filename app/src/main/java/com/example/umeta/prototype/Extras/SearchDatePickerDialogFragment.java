@@ -2,20 +2,20 @@ package com.example.umeta.prototype.Extras;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
 import com.example.umeta.prototype.PropertyInputActivity;
+import com.example.umeta.prototype.Search.ItemSearchActivity;
 
 import java.util.Calendar;
 
 /**
- * Created by yuuki on 2017/10/24.
+ * Created by umeta on 2017/10/27.
  */
 
-public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-
+public class SearchDatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar calender = Calendar.getInstance();
@@ -30,7 +30,8 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        PropertyInputActivity propertyInputActivity = (PropertyInputActivity) getActivity();
-        propertyInputActivity.setDate(year, month, day);
+
+        ItemSearchActivity itemSearchActivity = (ItemSearchActivity) getActivity();
+        itemSearchActivity.setDate(year, month, day);
     }
 }

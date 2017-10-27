@@ -1,14 +1,19 @@
 <resources>
 
     <string name="app_name">プロトタイプ</string>
+
     <string name="item_entry">アイテム登録</string>
     <string name="item_check">アイテム確認</string>
+    <string name="item_search">アイテム検索</string>
+    <string name="wear_report">コーディネート登録</string>
+
     <string name="item_entry_camera">撮影</string>
     <string name="item_entry_gallery">画像選択</string>
+
     <string name="property_input">詳細入力</string>
 
-    <string name="item">アイテム</string>
-    <string-array name="item_list">
+    <string name="category">カテゴリー</string>
+    <string-array name="category_list">
         <item>トップス</item>
         <item>アウター</item>
         <item>パンツ</item>
@@ -66,6 +71,16 @@
     <string name="purchase_date">購入日</string>
     <string name="calender">カレンダー表示</string>
 
+    <string name="price">値段</string>
+
     <string name="entry">登録</string>
+
+    <string name="search">検索</string>
+    <string name="search_method">検索方法</string>
+    <string name="category_search">カテゴリー検索</string>
+    <string name="color_search">色検索</string>
+    <string name="brand_search">ブランド検索</string>
+    <string name="purchase_date_search">購入日検索</string>
+    <string name="price_search">値段検索</string>
 
 </resources>
