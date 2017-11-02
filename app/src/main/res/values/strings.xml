@@ -76,6 +76,7 @@
     <string name="entry">登録</string>
 
     <string name="search">検索</string>
+    <string name="reset">リセット</string>
     <string name="search_method">検索方法</string>
     <string name="category_search">カテゴリー検索</string>
     <string name="color_search">色検索</string>

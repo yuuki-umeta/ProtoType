@@ -67,7 +67,7 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
             case R.id.entry:
                 Toast.makeText(this, "登録しました。", Toast.LENGTH_LONG).show();
 
-                Spinner spinnerItem = (Spinner) findViewById(R.id.item_list);
+                Spinner spinnerItem = (Spinner) findViewById(R.id.category_list);
                 Spinner spinnerColor = (Spinner) findViewById(R.id.color_list);
                 Spinner spinnerSize = (Spinner) findViewById(R.id.size_list);
                 EditText editTextBrand = (EditText) findViewById(R.id.brand);

@@ -14,81 +14,92 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/category"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
+
             <Spinner
-                android:id="@+id/item_list"
+                android:id="@+id/category_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/category_list"
                 android:spinnerMode="dropdown"
-                android:textSize="30sp">
-            </Spinner>
+                android:textSize="30sp"></Spinner>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/color"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
+
             <Spinner
                 android:id="@+id/color_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/color_list"
                 android:spinnerMode="dropdown"
-                android:textSize="30sp">
-            </Spinner>
+                android:textSize="30sp"></Spinner>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/size"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
+
             <Spinner
                 android:id="@+id/size_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/size_list"
                 android:spinnerMode="dropdown"
-                android:textSize="30sp">
-            </Spinner>
+                android:textSize="30sp"></Spinner>
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/brand"
                 android:textSize="25sp" />
+
             <EditText
                 android:id="@+id/brand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"/>
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,20 +110,21 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/calender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="@string/calender"/>
+                android:text="@string/calender" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +135,7 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
         </LinearLayout>
 

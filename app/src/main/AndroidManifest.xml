@@ -25,11 +25,6 @@
         <activity android:name=".GalleryActivity" />
         <activity android:name=".WearReportActivity" />
         <activity android:name=".Search.ItemSearchActivity" />
-        <activity android:name=".Search.CategorySearchActivity" />
-        <activity android:name=".Search.ColorSearchActivity" />
-        <activity android:name=".Search.BrandSearchActivity" />
-        <activity android:name=".Search.PurchaseDateSearchActivity" />
-        <activity android:name=".Search.PriceSearchActivity" />
         <activity android:name=".Search.SearchResultActivity" />
     </application>
 
