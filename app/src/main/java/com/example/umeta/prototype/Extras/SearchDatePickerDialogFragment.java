@@ -23,7 +23,7 @@ public class SearchDatePickerDialogFragment extends DialogFragment implements Da
         int month = calender.get(Calendar.MONTH);
         int day = calender.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),this, year, month, day);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
 
         return datePickerDialog;
     }

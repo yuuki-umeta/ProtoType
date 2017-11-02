@@ -117,7 +117,7 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
         itemProperty = dao.save(itemProperty);
     }
 
-    public void setDate(int year, int month, int day){
+    public void setDate(int year, int month, int day) {
         String dateStr = String.valueOf(year) + "/ " + String.valueOf(month + 1) + "/ " + String.valueOf(day);
         textDate.setText(dateStr);
     }
