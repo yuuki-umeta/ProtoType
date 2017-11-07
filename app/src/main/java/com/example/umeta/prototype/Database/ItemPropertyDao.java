@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.view.SearchEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,44 @@ public class ItemPropertyDao {
         List<ItemProperty> itemPropertyList;
         try{
             Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, null, null, null, null, ItemProperty.COLUMN_ITEM_ID);
+            itemPropertyList = new ArrayList<ItemProperty>();
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()){
+                itemPropertyList.add(getItemProperty(cursor));
+                cursor.moveToNext();
+            }
+        }finally {
+            db.close();
+        }
+        return itemPropertyList;
+    }
+
+    public List<ItemProperty> Search(String column[]){
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        int args = 0;
+        for (int i = 0; i < column.length; i++)
+            if (column[i] != null)
+                args++;
+
+        String selection = "";
+        String selectionArgs[] = new String[args];
+        args = 0;
+        for(int i = 0; i < column.length; i++){
+            if(column[i] != null){
+                selectionArgs[args] = column[i];
+                args++;
+                if(selection != ""){
+                    selection = selection + " AND ";
+                }
+                selection = selection + ItemProperty.COLUMNS[i] + " =" + " ?";
+            }
+        }
+
+
+        List<ItemProperty> itemPropertyList;
+        try {
+            Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, selection, selectionArgs, null, null, ItemProperty.COLUMN_ITEM_ID);
             itemPropertyList = new ArrayList<ItemProperty>();
             cursor.moveToFirst();
             while(!cursor.isAfterLast()){

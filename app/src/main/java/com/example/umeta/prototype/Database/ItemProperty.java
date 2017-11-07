@@ -21,6 +21,8 @@ public class ItemProperty implements Serializable {
     public static final String COLUMN_ITEM_LAST_USE_DATE = "item_last_use_date";
     public static final String COLUMN_ITEM_FREQUENCY = "item_frequency";
 
+    public static final String[] COLUMNS = {COLUMN_ITEM_ID, COLUMN_ITEM_CATEGORY, COLUMN_ITEM_COLOR, COLUMN_ITEM_SIZE, COLUMN_ITEM_BRAND,
+            COLUMN_ITEM_PURCHASE_DATE, COLUMN_ITEM_PRICE, COLUMN_ITEM_LAST_USE_DATE, COLUMN_ITEM_FREQUENCY};
 
     private Long itemId = null;
     private String itemCategory = null;

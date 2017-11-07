@@ -37,14 +37,14 @@ public class ItemCheckActivity extends AppCompatActivity implements View.OnClick
         ListView listView = (ListView) findViewById(R.id.item_list);
 
         ItemPropertyDao dao = new ItemPropertyDao(this);
-       itemList = dao.list();
+        itemList = dao.list();
 
         ArrayAdapter<ItemProperty> arrayAdapter = new ArrayAdapter<ItemProperty>(ItemCheckActivity.this, android.R.layout.simple_list_item_1, itemList);
         listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new ListItemClickListner());
+        listView.setOnItemClickListener(new ListItemClickListener());
     }
 
-    private class ListItemClickListner implements AdapterView.OnItemClickListener{
+    private class ListItemClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             ItemProperty item = itemList.get(i);
