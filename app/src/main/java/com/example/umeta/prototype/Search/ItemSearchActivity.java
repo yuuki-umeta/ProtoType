@@ -24,8 +24,6 @@ import java.util.TimeZone;
 
 public class ItemSearchActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ItemProperty itemProperty = new ItemProperty();
-
     private boolean searchColumn[] = new boolean[10];
     private String column[] = new String[10];
 
@@ -123,7 +121,6 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
                 }
             }
         });
-
     }
 
     public void onClick(View v) {

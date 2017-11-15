@@ -1,5 +1,6 @@
 package com.example.umeta.prototype;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -58,7 +59,7 @@ public class ItemCheckActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.check:
-                try {
+/*                try {
                     InputStream in = openFileInput(rowId.toString());
                     bitmap = BitmapFactory.decodeStream(in);
                 } catch (IOException e) {
@@ -66,8 +67,10 @@ public class ItemCheckActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 ImageView photo = (ImageView) findViewById(R.id.Photo);
-                photo.setImageBitmap(bitmap);
-
+                photo.setImageBitmap(bitmap);*/
+                Intent intent = new Intent(this, ItemObjectActivity.class);
+                intent.putExtra("id", rowId);
+                startActivity(intent);
                 break;
 
             case R.id.back:

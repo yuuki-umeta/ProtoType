@@ -26,6 +26,7 @@
         <activity android:name=".WearReportActivity" />
         <activity android:name=".Search.ItemSearchActivity" />
         <activity android:name=".Search.SearchResultActivity" />
+        <activity android:name=".ItemObjectActivity"></activity>
     </application>
 
 </manifest>
