@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.umeta.prototype.Search.ItemSearchActivity;
+import com.example.umeta.prototype.Search.SearchResultActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -34,8 +35,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.item_check:
-                Intent intentItemCheck = new Intent(this, ItemCheckActivity.class);
-                startActivity(intentItemCheck);
+                Intent intentSearchResult = new Intent(this, SearchResultActivity.class);
+                intentSearchResult.putExtra("all", true);
+                intentSearchResult.putExtra("coordinate", false);
+                startActivity(intentSearchResult);
                 break;
 
             case R.id.item_search:

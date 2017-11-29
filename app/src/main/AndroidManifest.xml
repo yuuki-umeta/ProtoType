@@ -21,7 +21,6 @@
         <activity android:name=".ItemEntryActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".PropertyInputActivity" />
-        <activity android:name=".ItemCheckActivity" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".WearReportActivity" />
         <activity android:name=".Search.ItemSearchActivity" />

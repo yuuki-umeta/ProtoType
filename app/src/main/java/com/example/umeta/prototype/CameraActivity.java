@@ -92,6 +92,7 @@ public class CameraActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intentPropertyInput = new Intent(CameraActivity.this, PropertyInputActivity.class);
+                        intentPropertyInput.putExtra("edit", false);
                         intentPropertyInput.putExtra("Uri", _imageUri);
                         startActivity(intentPropertyInput);
                         finish();

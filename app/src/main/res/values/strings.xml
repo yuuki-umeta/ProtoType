@@ -81,6 +81,7 @@
     <string name="edit">編集</string>
     <string name="delete">削除</string>
 
+    <string name="coordinate">コーディネートに追加する</string>
 
 
 </resources>

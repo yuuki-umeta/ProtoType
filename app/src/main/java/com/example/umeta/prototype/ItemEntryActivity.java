@@ -10,9 +10,6 @@ import android.widget.Button;
 
 public class ItemEntryActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Uri _imageUri;
-    private Bitmap bitmap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +28,14 @@ public class ItemEntryActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intentEntryCamera);
                 finish();
                 break;
+
             case R.id.item_entry_gallery:
                 Intent intentEntryGallery = new Intent(this, GalleryActivity.class);
                 startActivity(intentEntryGallery);
+                finish();
+                break;
+
+            case R.id.back:
                 finish();
                 break;
         }

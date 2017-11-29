@@ -5,6 +5,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.umeta.prototype.Database.ItemProperty;
 import com.example.umeta.prototype.Extras.PropertyDatePickerDialogFragment;
 import com.example.umeta.prototype.Extras.SearchDatePickerDialogFragment;
 import com.example.umeta.prototype.R;
+import com.example.umeta.prototype.WearReportActivity;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -35,6 +37,8 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
     private String itemPrice = null;
     private TextView textDate = null;
 
+    private Long rowId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +52,11 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
 
         Button bt_calender = (Button) findViewById(R.id.calender);
         Button bt_search = (Button) findViewById(R.id.search);
+        Button bt_back = (Button) findViewById(R.id.back);
 
         bt_calender.setOnClickListener(this);
         bt_search.setOnClickListener(this);
-
+        bt_back.setOnClickListener(this);
 
         Switch sw_category = (Switch) findViewById(R.id.button_category);
         Switch sw_color = (Switch) findViewById(R.id.button_color);
@@ -152,8 +157,22 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
                 if(searchColumn[6]) column[6] = itemPrice;
 
                 Intent searchResultIntent = new Intent(this, SearchResultActivity.class);
+                searchResultIntent.putExtra("all", false);
                 searchResultIntent.putExtra("column", column);
-                startActivity(searchResultIntent);
+
+                if(this.getIntent().getBooleanExtra("coordinate", true)){
+                    searchResultIntent.putExtra("coordinate", true);
+                    startActivityForResult(searchResultIntent, 120);
+                }
+                else{
+                    searchResultIntent.putExtra("coordinate", false);
+                    startActivity(searchResultIntent);
+                    finish();
+                }
+                break;
+
+            case R.id.back:
+                finish();
                 break;
         }
     }
@@ -161,6 +180,14 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
     public void setDate(int year, int month, int day) {
         String dateStr = String.valueOf(year) + "/ " + String.valueOf(month + 1) + "/ " + String.valueOf(day);
         textDate.setText(dateStr);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+        if(requestCode == 120){
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }
 

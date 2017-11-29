@@ -113,7 +113,6 @@ public class ItemPropertyDao {
             }
         }
 
-
         List<ItemProperty> itemPropertyList;
         try {
             Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, selection, selectionArgs, null, null, ItemProperty.COLUMN_ITEM_ID);
