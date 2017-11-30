@@ -79,7 +79,7 @@ public class SearchResultActivity extends AppCompatActivity implements View.OnCl
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
-        if(requestCode == 120){
+        if(resultCode == RESULT_OK && requestCode == 120){
             setResult(RESULT_OK, intent);
             finish();
         }

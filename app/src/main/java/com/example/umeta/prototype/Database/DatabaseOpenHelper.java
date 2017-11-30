@@ -23,6 +23,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ITEM_LAST_USE_DATE = "item_last_use_date";
     public static final String COLUMN_ITEM_FREQUENCY = "item_frequency";
 
+    private static final String TABLE_COORDINATE = "COORDINATE.db";
+
     public DatabaseOpenHelper(Context context){
         super(context, DB_NAME, null, 1);
     }

@@ -13,11 +13,12 @@ import com.example.umeta.prototype.Database.ItemPropertyDao;
 import com.example.umeta.prototype.Search.ItemSearchActivity;
 import com.example.umeta.prototype.Search.SearchResultActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WearReportActivity extends AppCompatActivity implements View.OnClickListener{
 
-    List<ItemProperty> itemList = null;
+    List<ItemProperty> itemList = new ArrayList<ItemProperty>();
     ItemPropertyDao dao = new ItemPropertyDao(this);
 
     ListView listView = null;
@@ -58,7 +59,7 @@ public class WearReportActivity extends AppCompatActivity implements View.OnClic
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
-        if(requestCode == 120){
+        if(resultCode == RESULT_OK && requestCode == 120){
             System.out.println(intent.getLongExtra("rowId", 0));
             itemList.add(dao.load(intent.getLongExtra("rowId", 0)));
             ArrayAdapter<ItemProperty> arrayAdapter = new ArrayAdapter<ItemProperty>(WearReportActivity.this, android.R.layout.simple_list_item_1, itemList);

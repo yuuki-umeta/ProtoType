@@ -81,16 +81,16 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
                     intent.putExtra("rowId", itemProperty.getItemId());
                     setResult(RESULT_OK, intent);
                 }else {
-                    Intent propertyIntputIntent = new Intent(this, PropertyInputActivity.class);
-                    propertyIntputIntent.putExtra("edit", true);
-                    propertyIntputIntent.putExtra("id", itemProperty.getItemId());
-                    propertyIntputIntent.putExtra("category", itemProperty.getItemCategory());
-                    propertyIntputIntent.putExtra("color", itemProperty.getItemColor());
-                    propertyIntputIntent.putExtra("size", itemProperty.getItemSize());
-                    propertyIntputIntent.putExtra("brand", itemProperty.getItemBrand());
-                    propertyIntputIntent.putExtra("purchaseDate", itemProperty.getItemPurchaseDate());
-                    propertyIntputIntent.putExtra("price", itemProperty.getItemPrice());
-                    startActivity(propertyIntputIntent);
+                    Intent propertyInputIntent = new Intent(this, PropertyInputActivity.class);
+                    propertyInputIntent.putExtra("edit", true);
+                    propertyInputIntent.putExtra("id", itemProperty.getItemId());
+                    propertyInputIntent.putExtra("category", itemProperty.getItemCategory());
+                    propertyInputIntent.putExtra("color", itemProperty.getItemColor());
+                    propertyInputIntent.putExtra("size", itemProperty.getItemSize());
+                    propertyInputIntent.putExtra("brand", itemProperty.getItemBrand());
+                    propertyInputIntent.putExtra("purchaseDate", itemProperty.getItemPurchaseDate());
+                    propertyInputIntent.putExtra("price", itemProperty.getItemPrice());
+                    startActivity(propertyInputIntent);
                 }
                 finish();
                 break;
@@ -110,5 +110,4 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
     }
-
 }

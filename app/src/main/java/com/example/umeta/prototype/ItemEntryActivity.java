@@ -17,8 +17,10 @@ public class ItemEntryActivity extends AppCompatActivity implements View.OnClick
 
         Button btEntryCamera = (Button) findViewById(R.id.item_entry_camera);
         Button btEntryGallery = (Button) findViewById(R.id.item_entry_gallery);
+        Button btBack = (Button) findViewById(R.id.back);
         btEntryCamera.setOnClickListener(this);
         btEntryGallery.setOnClickListener(this);
+        btBack.setOnClickListener(this);
     }
 
     public void onClick(View v) {

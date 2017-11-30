@@ -113,6 +113,10 @@ public class ItemPropertyDao {
             }
         }
 
+        for(int i = 0; i < selectionArgs.length; i++){
+            System.out.println(selectionArgs[i]);
+        }
+
         List<ItemProperty> itemPropertyList;
         try {
             Cursor cursor = db.query(ItemProperty.TABLE_NAME, null, selection, selectionArgs, null, null, ItemProperty.COLUMN_ITEM_ID);
@@ -126,6 +130,14 @@ public class ItemPropertyDao {
             db.close();
         }
         return itemPropertyList;
+    }
+
+    private List<ItemProperty> makeList(List<ItemProperty> itemList, Long rowId){
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        Cursor cursor = db.query(ItemProperty.TABLE_NAME, null,  ItemProperty.COLUMN_ITEM_ID + "=?", new String[]{String.valueOf(rowId)}, null, null, null);
+        itemList.add(getItemProperty(cursor));
+        return itemList;
     }
 
     private ItemProperty getItemProperty(Cursor cursor){
