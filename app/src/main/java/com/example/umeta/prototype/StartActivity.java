@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.umeta.prototype.Database.Coordinate;
 import com.example.umeta.prototype.Search.ItemSearchActivity;
 import com.example.umeta.prototype.Search.SearchResultActivity;
 
@@ -19,12 +20,14 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         Button btItemEntry = (Button) findViewById(R.id.item_entry);
         Button btItemCheck = (Button) findViewById(R.id.item_check);
         Button btItemSearch = (Button) findViewById(R.id.item_search);
-        Button btWearReport = (Button) findViewById(R.id.wear_report);
+        Button btCoordinateInput = (Button) findViewById(R.id.coordinate_input);
+        Button btCoordinateCheck = (Button) findViewById(R.id.coordinate_check);
 
         btItemEntry.setOnClickListener(this);
         btItemCheck.setOnClickListener(this);
         btItemSearch.setOnClickListener(this);
-        btWearReport.setOnClickListener(this);
+        btCoordinateInput.setOnClickListener(this);
+        btCoordinateCheck.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -43,12 +46,18 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.item_search:
                 Intent intentItemSearch = new Intent(this, ItemSearchActivity.class);
+                intentItemSearch.putExtra("coordinate", false);
                 startActivity(intentItemSearch);
                 break;
 
-            case R.id.wear_report:
-                Intent intentWearReport = new Intent(this, WearReportActivity.class);
-                startActivity(intentWearReport);
+            case R.id.coordinate_input:
+                Intent intentCoordinateInput = new Intent(this, CoordinateInputActivity.class);
+                startActivity(intentCoordinateInput);
+                break;
+
+            case R.id.coordinate_check:
+                Intent intentCoordinateCheck = new Intent(this, CoordinateCheckActivity.class);
+                startActivity(intentCoordinateCheck);
                 break;
         }
     }

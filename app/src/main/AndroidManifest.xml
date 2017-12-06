@@ -22,10 +22,11 @@
         <activity android:name=".CameraActivity" />
         <activity android:name=".PropertyInputActivity" />
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".WearReportActivity" />
+        <activity android:name=".CoordinateInputActivity" />
         <activity android:name=".Search.ItemSearchActivity" />
         <activity android:name=".Search.SearchResultActivity" />
-        <activity android:name=".ItemObjectActivity"></activity>
+        <activity android:name=".ItemObjectActivity" />
+        <activity android:name=".CoordinateCheckActivity"></activity>
     </application>
 
 </manifest>

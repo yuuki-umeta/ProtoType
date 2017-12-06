@@ -1,25 +1,18 @@
 package com.example.umeta.prototype.Search;
 
 import android.content.Intent;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.umeta.prototype.Database.ItemProperty;
-import com.example.umeta.prototype.Extras.PropertyDatePickerDialogFragment;
 import com.example.umeta.prototype.Extras.SearchDatePickerDialogFragment;
 import com.example.umeta.prototype.R;
-import com.example.umeta.prototype.WearReportActivity;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -36,8 +29,6 @@ public class ItemSearchActivity extends AppCompatActivity implements View.OnClic
     private String itemPurchaseDate = null;
     private String itemPrice = null;
     private TextView textDate = null;
-
-    private Long rowId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

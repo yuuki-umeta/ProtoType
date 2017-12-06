@@ -14,8 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.umeta.prototype.Database.ItemProperty;
-import com.example.umeta.prototype.Database.ItemPropertyDao;
+import com.example.umeta.prototype.Database.Item;
+import com.example.umeta.prototype.Database.ItemDao;
 import com.example.umeta.prototype.Extras.GetSpinnerId;
 import com.example.umeta.prototype.Extras.PropertyDatePickerDialogFragment;
 
@@ -26,7 +26,7 @@ import java.util.TimeZone;
 
 public class PropertyInputActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ItemProperty itemProperty = new ItemProperty();
+    private Item item = new Item();
 
     private Boolean edit = null;
 
@@ -106,7 +106,7 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
                 if (!edit) {
                     Intent intent = this.getIntent();
                     Uri _imageUri = intent.getParcelableExtra("Uri");
-                    Long itemId = itemProperty.getItemId();
+                    Long itemId = item.getItemId();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imageUri);
                     } catch (IOException e) {
@@ -130,17 +130,17 @@ public class PropertyInputActivity extends AppCompatActivity implements View.OnC
     public void itemPropertyInput() {
         if (edit) {
             Intent intent = this.getIntent();
-            itemProperty.setItemId(intent.getLongExtra("id", 0));
+            item.setItemId(intent.getLongExtra("id", 0));
         }
-        itemProperty.setItemCategory(itemCategory);
-        itemProperty.setItemColor(itemColor);
-        itemProperty.setItemSize(itemSize);
-        itemProperty.setItemBrand(itemBrand);
-        itemProperty.setItemPurchaseDate(itemPurchaseDate);
-        itemProperty.setItemPrice(itemPrice);
+            item.setItemCategory(itemCategory);
+        item.setItemColor(itemColor);
+        item.setItemSize(itemSize);
+        item.setItemBrand(itemBrand);
+        item.setItemPurchaseDate(itemPurchaseDate);
+        item.setItemPrice(itemPrice);
 
-        ItemPropertyDao dao = new ItemPropertyDao(this);
-        itemProperty = dao.save(itemProperty);
+        ItemDao dao = new ItemDao(this);
+        item = dao.save(item);
     }
 
     public void setDate(int year, int month, int day) {

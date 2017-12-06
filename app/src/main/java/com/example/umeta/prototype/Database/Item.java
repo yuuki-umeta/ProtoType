@@ -8,8 +8,8 @@ import java.io.Serializable;
  * Created by yuuki on 2017/08/29.
  */
 
-public class ItemProperty implements Serializable {
-    public static final String TABLE_NAME = "item_property";
+public class Item implements Serializable {
+    public static final String TABLE_ITEM = "item";
 
     public static final String COLUMN_ITEM_ID = "item_id";
     public static final String COLUMN_ITEM_CATEGORY = "item_category";
@@ -110,15 +110,15 @@ public class ItemProperty implements Serializable {
     public String toString(){
         StringBuilder builder = new StringBuilder();
         builder.append(getItemId());
-        builder.append(",");
+        builder.append(" : ");
         builder.append(getItemCategory());
-        builder.append(",");
+        builder.append(", ");
         builder.append(getItemColor());
-        builder.append(",");
+        builder.append(", ");
         builder.append(getItemSize());
-        builder.append(",");
+        builder.append(", ");
         builder.append(getItemBrand());
-        builder.append(",");
+        builder.append(", ");
         builder.append(getItemPurchaseDate());
         builder.append(", ");
         builder.append(getItemPrice());

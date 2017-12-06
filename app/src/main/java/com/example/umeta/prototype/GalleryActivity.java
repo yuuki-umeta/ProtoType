@@ -63,6 +63,7 @@ public class GalleryActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intentPropertyInput = new Intent(GalleryActivity.this, PropertyInputActivity.class);
+                        intentPropertyInput.putExtra("edit", false);
                         intentPropertyInput.putExtra("Uri", _imageUri);
                         startActivity(intentPropertyInput);
                         finish();
@@ -80,6 +81,4 @@ public class GalleryActivity extends AppCompatActivity {
         alertDlg.create().show();
         return super.onTouchEvent(event);
     }
-
-
 }

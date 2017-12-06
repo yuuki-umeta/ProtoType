@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.umeta.prototype.Database.ItemProperty;
-import com.example.umeta.prototype.Database.ItemPropertyDao;
+import com.example.umeta.prototype.Database.Item;
+import com.example.umeta.prototype.Database.ItemDao;
 import com.example.umeta.prototype.ItemObjectActivity;
 import com.example.umeta.prototype.R;
 
@@ -20,7 +20,7 @@ public class SearchResultActivity extends AppCompatActivity implements View.OnCl
 
     Long id = null;
     Long rowId = null;
-    List<ItemProperty> itemList = null;
+    List<Item> itemList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class SearchResultActivity extends AppCompatActivity implements View.OnCl
         Button btBack = (Button) findViewById(R.id.back);
         btBack.setOnClickListener(this);
 
-        ListView listView = (ListView) findViewById(R.id.item_list);
+        ListView itemListView = (ListView) findViewById(R.id.item_list);
 
-        ItemPropertyDao dao = new ItemPropertyDao(this);
+        ItemDao dao = new ItemDao(this);
         Intent intent = this.getIntent();
         Boolean all = intent.getBooleanExtra("all", true);
         if(all){
@@ -40,18 +40,18 @@ public class SearchResultActivity extends AppCompatActivity implements View.OnCl
         }
         else{
             String column[] = intent.getStringArrayExtra("column");
-            itemList = dao.Search(column);
+            itemList = dao.search(column);
         }
 
-        ArrayAdapter<ItemProperty> arrayAdapter = new ArrayAdapter<ItemProperty>(SearchResultActivity.this, android.R.layout.simple_list_item_1, itemList);
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new SearchResultActivity.ListItemClickListener());
+        ArrayAdapter<Item> arrayAdapterI = new ArrayAdapter<Item>(SearchResultActivity.this, android.R.layout.simple_list_item_1, itemList);
+        itemListView.setAdapter(arrayAdapterI);
+        itemListView.setOnItemClickListener(new SearchResultActivity.ListItemClickListener());
     }
 
     private class ListItemClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            ItemProperty item = itemList.get(i);
+            Item item = itemList.get(i);
             rowId = item.getItemId();
             itemObjectIntent(rowId);
         }

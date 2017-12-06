@@ -1,6 +1,5 @@
 package com.example.umeta.prototype;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,23 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.umeta.prototype.Database.ItemProperty;
-import com.example.umeta.prototype.Database.ItemPropertyDao;
-
-import org.w3c.dom.Text;
+import com.example.umeta.prototype.Database.Item;
+import com.example.umeta.prototype.Database.ItemDao;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 public class ItemObjectActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ItemProperty itemProperty = new ItemProperty();
-    ItemPropertyDao dao = new ItemPropertyDao(this);
+    Item item = new Item();
+    ItemDao dao = new ItemDao(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
         Intent intent = this.getIntent();
         Long rowId = intent.getLongExtra("id", 0);
 
-        itemProperty = dao.load(rowId);
+        item = dao.load(rowId);
 
         TextView category = (TextView) findViewById(R.id.category);
         TextView color = (TextView) findViewById(R.id.color);
@@ -43,12 +39,12 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
         TextView purchase_date = (TextView) findViewById(R.id.purcase_date);
         TextView price = (TextView) findViewById(R.id.price);
 
-        category.setText(itemProperty.getItemCategory());
-        color.setText(itemProperty.getItemColor());
-        size.setText(itemProperty.getItemSize());
-        brand.setText(itemProperty.getItemBrand());
-        purchase_date.setText(itemProperty.getItemPurchaseDate());
-        price.setText(itemProperty.getItemPrice());
+        category.setText(item.getItemCategory());
+        color.setText(item.getItemColor());
+        size.setText(item.getItemSize());
+        brand.setText(item.getItemBrand());
+        purchase_date.setText(item.getItemPurchaseDate());
+        price.setText(item.getItemPrice());
 
         try {
             InputStream in = openFileInput(rowId.toString());
@@ -78,18 +74,18 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
             case R.id.edit:
                 if(this.getIntent().getBooleanExtra("coordinate", true)) {
                     Intent intent = new Intent();
-                    intent.putExtra("rowId", itemProperty.getItemId());
+                    intent.putExtra("rowId", item.getItemId());
                     setResult(RESULT_OK, intent);
                 }else {
                     Intent propertyInputIntent = new Intent(this, PropertyInputActivity.class);
                     propertyInputIntent.putExtra("edit", true);
-                    propertyInputIntent.putExtra("id", itemProperty.getItemId());
-                    propertyInputIntent.putExtra("category", itemProperty.getItemCategory());
-                    propertyInputIntent.putExtra("color", itemProperty.getItemColor());
-                    propertyInputIntent.putExtra("size", itemProperty.getItemSize());
-                    propertyInputIntent.putExtra("brand", itemProperty.getItemBrand());
-                    propertyInputIntent.putExtra("purchaseDate", itemProperty.getItemPurchaseDate());
-                    propertyInputIntent.putExtra("price", itemProperty.getItemPrice());
+                    propertyInputIntent.putExtra("id", item.getItemId());
+                    propertyInputIntent.putExtra("category", item.getItemCategory());
+                    propertyInputIntent.putExtra("color", item.getItemColor());
+                    propertyInputIntent.putExtra("size", item.getItemSize());
+                    propertyInputIntent.putExtra("brand", item.getItemBrand());
+                    propertyInputIntent.putExtra("purchaseDate", item.getItemPurchaseDate());
+                    propertyInputIntent.putExtra("price", item.getItemPrice());
                     startActivity(propertyInputIntent);
                 }
                 finish();
@@ -99,7 +95,7 @@ public class ItemObjectActivity extends AppCompatActivity implements View.OnClic
                 if(this.getIntent().getBooleanExtra("coordinate", true)) {
                     break;
                 }else {
-                    dao.delete(itemProperty);
+                    dao.delete(item);
                     Toast.makeText(this, "削除しました", Toast.LENGTH_LONG).show();
                     finish();
                     break;

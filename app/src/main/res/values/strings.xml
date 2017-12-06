@@ -5,7 +5,8 @@
     <string name="item_entry">アイテム登録</string>
     <string name="item_check">アイテム確認</string>
     <string name="item_search">アイテム検索</string>
-    <string name="wear_report">コーディネート登録</string>
+    <string name="coordinate_input">コーディネート登録</string>
+    <string name="coordinate_check">コーディネート確認</string>
 
     <string name="item_entry_camera">撮影</string>
     <string name="item_entry_gallery">画像選択</string>
